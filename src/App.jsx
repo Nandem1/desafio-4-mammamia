@@ -3,11 +3,16 @@ import './App.css'
 import MyContext from './MyContext'
 import NavbarMain from './components/NavbarMain'
 import Home from './views/Home'
+import HomePizzas from './views/HomePizzas'
 
 function App() {
   
 
   const globalContext = { }
+
+  const getData = async () => {
+    
+  }
 
 
   return (
@@ -17,7 +22,7 @@ function App() {
           <NavbarMain />
           <Home />
           <Routes>
-            
+            <Route path='/pizzas' element={<HomePizzas />}/>
           </Routes>
         </BrowserRouter>
       </MyContext.Provider>

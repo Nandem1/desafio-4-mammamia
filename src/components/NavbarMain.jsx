@@ -28,7 +28,7 @@ function NavbarMain() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <NavLink className={setActiveClass} to="/home">Home</NavLink>
+                        <NavLink className={setActiveClass} to="/pizzas">Pizzas</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
