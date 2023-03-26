@@ -1,0 +1,8 @@
+.notscrolled {
+    background-color: transparent !important;
+    transition: 0.2s ;
+}
+
+.scrolled {
+    transition: 0.2s;
+}
