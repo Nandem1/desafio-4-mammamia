@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
 import MyContext from './MyContext'
 import NavbarMain from './components/NavbarMain'
 import Home from './views/Home'
 import HomePizzas from './views/HomePizzas'
+import PizzaSeeMore from './views/PizzaSeeMore'
+import Footer from './components/Footer'
 
 function App() {
   const [pizzasData, setPizzasData] = useState([])
+  const [pizzaSelected, setPizzaSelected] = useState("")
 
-
-  const globalContext = { pizzasData }
+  const globalContext = { pizzasData, pizzaSelected, setPizzaSelected }
 
   const getData = async () => {
     try {
@@ -38,8 +40,10 @@ function App() {
           <NavbarMain />
           <Home />
           <Routes>
-            <Route path='/pizzas' element={<HomePizzas />} />
+            <Route path='/' element={<HomePizzas />} />
+            {<Route path='/:pizzaParams' element={pizzaSelected != "" ? <PizzaSeeMore /> : <Navigate to='/'/>}/>}
           </Routes>
+          <Footer />
         </BrowserRouter>
       </MyContext.Provider>
     </div>

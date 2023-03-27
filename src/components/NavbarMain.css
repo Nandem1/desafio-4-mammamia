@@ -1,8 +1,7 @@
-.notscrolled {
-    background-color: transparent !important;
-    transition: 0.2s ;
+* {
+    scroll-padding: 90px;
 }
 
-.scrolled {
+.transition {
     transition: 0.2s;
 }
