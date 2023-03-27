@@ -1,7 +1,19 @@
 * {
-    scroll-padding: 90px;
+  scroll-padding: 90px;
 }
 
 .transition {
+  transition: 0.2s;
+}
+
+.nav-link-custom:hover {
+  text-decoration: underline;
+  transition: 0.2s;
+  color: blanchedalmond;
+}
+
+.nav-link-custom {
+    text-decoration: none;
     transition: 0.2s;
+    color: white;
 }

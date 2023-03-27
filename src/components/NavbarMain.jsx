@@ -3,10 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import MyContext from '../MyContext';
+import Cart from '../views/Cart';
 
 function NavbarMain() {
-    const setActiveClass = ({ isActive }) => (isActive ? "active" : "inactive")
+    const { show, setShow, handleClose, handleShow } = useContext(MyContext)
     const [scrolled, setScrolled] = useState(false);
 
     const handleScroll = () => {
@@ -39,9 +41,10 @@ function NavbarMain() {
                 <Navbar.Brand className='fs-3' href='/'>Pizzería Mamma Mia!</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <NavLink onClick={scrollToTop} className={setActiveClass} to="/">Home</NavLink>
-                        <NavLink onClick={() => handleNavLinkClick("pizzas-disponibles")} className={setActiveClass} to="/">Pizzas</NavLink>
+                    <Nav className="ms-auto d-flex justify-content-evenly align-items-center w-25">
+                        <NavLink onClick={scrollToTop} className='nav-link-custom' to="/">Home</NavLink>
+                        <NavLink onClick={() => handleNavLinkClick("pizzas-disponibles")} className='nav-link-custom' to="/">Pizzas</NavLink>
+                        <NavLink onClick={handleShow} className='nav-link-custom'>Cart</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

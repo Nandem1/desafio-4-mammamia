@@ -7,12 +7,16 @@ import Home from './views/Home'
 import HomePizzas from './views/HomePizzas'
 import PizzaSeeMore from './views/PizzaSeeMore'
 import Footer from './components/Footer'
+import Cart from './views/Cart'
 
 function App() {
   const [pizzasData, setPizzasData] = useState([])
   const [pizzaSelected, setPizzaSelected] = useState("")
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-  const globalContext = { pizzasData, pizzaSelected, setPizzaSelected }
+  const globalContext = { pizzasData, pizzaSelected, setPizzaSelected, show, setShow, handleClose, handleShow }
 
   const getData = async () => {
     try {
@@ -38,10 +42,11 @@ function App() {
       <MyContext.Provider value={globalContext}>
         <BrowserRouter>
           <NavbarMain />
+          <Cart />
           <Home />
           <Routes>
             <Route path='/' element={<HomePizzas />} />
-            {<Route path='/:pizzaParams' element={pizzaSelected != "" ? <PizzaSeeMore /> : <Navigate to='/'/>}/>}
+            <Route path='/:pizzaParams' element={pizzaSelected != "" ? <PizzaSeeMore /> : <Navigate to='/' />} />
           </Routes>
           <Footer />
         </BrowserRouter>
