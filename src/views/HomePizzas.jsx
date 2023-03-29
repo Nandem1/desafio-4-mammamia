@@ -12,7 +12,7 @@ function HomePizzas() {
 
     const seePizza = (e) => {
         setPizzaSelected(e)
-        navigate(`/${e}`)
+        navigate(`/pizza/${e}`)
         console.log(e)
     }
 

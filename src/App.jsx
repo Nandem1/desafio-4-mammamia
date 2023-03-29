@@ -49,7 +49,7 @@ function App() {
           <Home />
           <Routes>
             <Route path='/desafio-4-mammamia' element={<HomePizzas />} />
-            <Route path='/:pizzaParams' element={pizzaSelected != "" ? <PizzaSeeMore /> : <Navigate to='/' />} />
+            <Route path='/pizza/:pizzaParams' element={pizzaSelected != "" ? <PizzaSeeMore /> : <Navigate to='/' />} />
           </Routes>
           <Footer />
         </BrowserRouter>

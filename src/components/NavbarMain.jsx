@@ -43,7 +43,7 @@ function NavbarMain() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto d-flex justify-content-evenly align-items-center w-25">
                         <NavLink onClick={scrollToTop} className='nav-link-custom' to="/desafio-4-mammamia">Home</NavLink>
-                        <NavLink onClick={() => handleNavLinkClick("pizzas-disponibles")} className='nav-link-custom' to="/">Pizzas</NavLink>
+                        <NavLink onClick={() => handleNavLinkClick("pizzas-disponibles")} className='nav-link-custom' to="/desafio-4-mammamia">Pizzas</NavLink>
                         <NavLink onClick={handleShow} className='nav-link-custom'>Cart <Badge bg={scrolled ? "danger border border-warning" : "transparent border"}>{quantityTotal}</Badge></NavLink>
                     </Nav>
                 </Navbar.Collapse>
