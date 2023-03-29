@@ -15,8 +15,11 @@ function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [cart, setCart] = useState([])
+  const [total, setTotal] = useState(0)
+  const [quantityTotal, setQuantityTotal] = useState(0)
 
-  const globalContext = { pizzasData, pizzaSelected, setPizzaSelected, show, setShow, handleClose, handleShow }
+  const globalContext = { pizzasData, pizzaSelected, setPizzaSelected, show, setShow, handleClose, handleShow, cart, setCart, total, setTotal, quantityTotal, setQuantityTotal }
 
   const getData = async () => {
     try {

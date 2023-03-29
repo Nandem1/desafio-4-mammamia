@@ -1,0 +1,36 @@
+.div-papito {
+ width: 55px;
+}
+
+.div-hijito {
+    width: 25%;
+}
+
+.img-papa {
+    width: 25%;
+    height: 100%;
+}
+
+.total-pay {
+    font-size: 28px;
+}
+
+@media (max-width: 750px) {
+    .cart-text {
+        font-size: 12px;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .cart-text p {
+        margin: 0px;
+    }
+
+    .img-papa {
+        width: 38%;
+    }
+
+    .total-pay {
+        font-size: 14px;
+    }
+}

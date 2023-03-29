@@ -5,10 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useContext } from "react";
 import MyContext from '../MyContext';
-import Cart from '../views/Cart';
+import Badge from 'react-bootstrap/Badge';
 
 function NavbarMain() {
-    const { show, setShow, handleClose, handleShow } = useContext(MyContext)
+    const { show, setShow, handleClose, handleShow, quantityTotal } = useContext(MyContext)
     const [scrolled, setScrolled] = useState(false);
 
     const handleScroll = () => {
@@ -44,7 +44,7 @@ function NavbarMain() {
                     <Nav className="ms-auto d-flex justify-content-evenly align-items-center w-25">
                         <NavLink onClick={scrollToTop} className='nav-link-custom' to="/">Home</NavLink>
                         <NavLink onClick={() => handleNavLinkClick("pizzas-disponibles")} className='nav-link-custom' to="/">Pizzas</NavLink>
-                        <NavLink onClick={handleShow} className='nav-link-custom'>Cart</NavLink>
+                        <NavLink onClick={handleShow} className='nav-link-custom'>Cart <Badge bg={scrolled ? "danger border border-warning" : "transparent border"}>{quantityTotal}</Badge></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -6,13 +6,27 @@ import { useNavigate } from 'react-router-dom';
 import './HomePizzas.css'
 
 function HomePizzas() {
-    const { pizzasData, setPizzaSelected, pizzaSelected } = useContext(MyContext)
+    const { pizzasData, setPizzaSelected, pizzaSelected, cart, setCart } = useContext(MyContext)
+    const [ addedCart, setAddedCart] = useState(false)
     const navigate = useNavigate()
 
     const seePizza = (e) => {
-            setPizzaSelected(e)
-            navigate(`/${e}`)
-            console.log(e)
+        setPizzaSelected(e)
+        navigate(`/${e}`)
+        console.log(e)
+    }
+
+    const addItemToCart = (itemId) => {
+        let findItem = cart.find((item) => item.id === itemId)
+
+        if (findItem) {
+            findItem.count += 1
+            setCart([...cart])
+        } else {
+            findItem = pizzasData.find((item) => item.id === itemId)
+            findItem.count = 1
+            setCart([...cart, findItem])
+        }
     }
 
     useEffect(() => {
@@ -59,7 +73,7 @@ function HomePizzas() {
                                             <h4 className='text-center'>{priceCorrection(item.price)}</h4>
                                             <div className='d-flex justify-content-center align-items-center'>
                                                 <Button variant='info' onClick={() => seePizza(item.name)} className='mx-2 mt-2'>Ver mas</Button>
-                                                <Button variant='danger' className='mx-2 mt-2'>Añadir</Button>
+                                                <Button variant='danger' onClick={() => addItemToCart(item.id)} className='mx-2 mt-2'>Añadir</Button>
                                             </div>
                                         </Card.Text>
                                     </Card.Body>
