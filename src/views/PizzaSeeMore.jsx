@@ -5,13 +5,26 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 
 function PizzaSeeMore() {
     const { pizzaParams } = useParams()
-    const { pizzasData, setPizzaSelected, pizzaSelected } = useContext(MyContext)
+    const { pizzasData, setPizzaSelected, pizzaSelected, cart, setCart } = useContext(MyContext)
 
     console.log("Parametros: ", pizzaParams)
 
     const pizzaClicked = pizzasData.find((p) => p.name == pizzaParams)
 
     console.log(pizzaClicked)
+
+    const addItemToCart = (itemId) => {
+        let findItem = cart.find((item) => item.id === itemId)
+
+        if (findItem) {
+            findItem.count += 1
+            setCart([...cart])
+        } else {
+            findItem = pizzasData.find((item) => item.id === itemId)
+            findItem.count = 1
+            setCart([...cart, findItem])
+        }
+    }
 
     const capitalizeWord = (word) => {
         const firstLetter = word.charAt(0)
@@ -48,7 +61,7 @@ function PizzaSeeMore() {
                                 <p className='fw-semibold fs-1'>{priceCorrection(pizzaClicked.price)}</p>
                             </div>
                             <div>
-                                <Button variant='danger' className='mx-2 mt-2'>Añadir</Button>
+                                <Button onClick={() => addItemToCart(pizzaClicked.id)} variant='danger' className='mx-2 mt-2'>Añadir</Button>
                             </div>
                         </div>
                     </Col>

@@ -7,7 +7,6 @@ import './HomePizzas.css'
 
 function HomePizzas() {
     const { pizzasData, setPizzaSelected, pizzaSelected, cart, setCart } = useContext(MyContext)
-    const [ addedCart, setAddedCart] = useState(false)
     const navigate = useNavigate()
 
     const seePizza = (e) => {
