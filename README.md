@@ -1,4 +1,4 @@
-## Desafio 3 - React 2 - Ragnarok Online API
+## Desafio 4 - React 2 - Pizzeria Mamma Mia
 ---
 | codigo | descripcion |
 |--------|-------------|
