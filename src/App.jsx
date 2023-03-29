@@ -48,7 +48,7 @@ function App() {
           <Cart />
           <Home />
           <Routes>
-            <Route path='/' element={<HomePizzas />} />
+            <Route path='/desafio-4-mammamia' element={<HomePizzas />} />
             <Route path='/:pizzaParams' element={pizzaSelected != "" ? <PizzaSeeMore /> : <Navigate to='/' />} />
           </Routes>
           <Footer />
